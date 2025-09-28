@@ -1,0 +1,11 @@
+@host = localhost:3000
+
+### Get all contacts
+GET http://{{host}}/contacts
+Accept: application/json
+
+###
+
+### Get single contact by id (replace the id)
+GET http://{{host}}/contacts?id=68d9990819750ec48e206d95
+Accept: application/json
