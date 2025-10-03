@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 (async function start() {
   try {
-    await connectToMongo();            // ensure DB connection before accepting requests
+    await connectToMongo();      
     app.listen(PORT, () => {
       console.log(`Server listening on http://localhost:${PORT}`);
     });
