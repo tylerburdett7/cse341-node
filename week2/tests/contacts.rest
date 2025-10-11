@@ -1,0 +1,45 @@
+@host = https://cse341-node-2-wqko.onrender.com
+
+### Get all contacts
+GET {{host}}/contacts
+Accept: application/json
+
+###
+
+### Create a new contact
+# @name createContact
+POST {{host}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Tyler",
+  "lastName": "Burdett",
+  "email": "tyler@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "2003-09-15"
+}
+
+###
+
+### Get single contact by id (auto from POST)
+GET {{host}}/contacts?id={{createContact.response.body.$.id}}
+Accept: application/json
+
+###
+
+### Update that contact
+PUT {{host}}/contacts/{{createContact.response.body.$.id}}
+Content-Type: application/json
+
+{
+  "firstName": "Updated",
+  "lastName": "Name",
+  "email": "updated@example.com",
+  "favoriteColor": "Green",
+  "birthday": "2003-09-15"
+}
+
+###
+
+### Delete that contact
+DELETE {{host}}/contacts/{{createContact.response.body.$.id}}
